@@ -1,0 +1,297 @@
+/* only in content editor page */
+html .mceContentBody {
+	max-width: 890px;
+}
+/* end only in content editor page */
+
+body {
+	font: 13px/1.5em "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #444;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	/*	font-family: "Georgia", "Times New Roman", Helvetica, Arial, sans-serif; */
+		font-weight: 400; margin-top: 0;}
+
+h1 { font-size: 34px; line-height: 1.1em; margin-bottom: 14px;}
+h2 { font-size: 28px; line-height: 1.1em; margin-bottom: 10px; }
+h3 { font-size: 24px; line-height: 1.1em; margin-bottom: 8px; } /*28*/
+h4 { font-size: 20px; line-height: 1.1em; margin-bottom: 4px; } /*21*/
+h5 { font-size: 18px; line-height: 1.1em; margin-bottom: 2px; }
+h6 { font-size: 15px; line-height: 1.1em; margin-bottom: 0; }
+
+/* Link */
+a, a > * {
+	color: #0C4DA2; /* #4d90fe; */
+	text-decoration: none;
+	-webkit-transition: background-color .2s ease, border .2s ease, color .2s ease, opacity .2s ease-in-out;
+	   -moz-transition: background-color .2s ease, border .2s ease, color .2s ease, opacity .2s ease-in-out;
+	    -ms-transition: background-color .2s ease, border .2s ease, color .2s ease, opacity .2s ease-in-out;
+	     -o-transition: background-color .2s ease, border .2s ease, color .2s ease, opacity .2s ease-in-out;
+	        transition: background-color .2s ease, border .2s ease, color .2s ease, opacity .2s ease-in-out;
+}
+
+a:hover { text-decoration: underline; color: #DFA756; }
+
+/* Text elements */
+
+p { margin-bottom: 1.3em; margin-top: 0; }
+
+img{
+	vertical-align: top; /* Remove white space at bottom */
+}
+
+address {
+	font-style: italic;
+	display: block;
+	margin: 0 0 1.5em;
+}
+
+b,
+strong {
+	font-weight: bold;
+}
+
+dfn {
+	font-style: italic;
+}
+
+ul {
+	list-style: square;
+}
+
+ul ul {
+	list-style: disc;
+}
+
+ol {
+	list-style-type: decimal;
+}
+
+ol ol {
+	list-style: upper-alpha;
+}
+
+ol ol ol {
+	list-style: lower-roman;
+}
+
+ol ol ol ol {
+	list-style: lower-alpha;
+}
+
+ul ul,
+ol ol,
+ul ol,
+ol ul {
+	margin-bottom: 0;
+}
+
+dl {
+	margin: 0 0 1.5em 0;
+}
+
+dt {
+	font-weight: bold;
+}
+
+dd {
+	margin: 0 0 0.75em 1.5em;
+}
+
+cite,
+em,
+i {
+	font-style: italic;
+}
+
+pre {
+	margin: 0 0 1.5em;
+	padding: 0.7272em 1.09em;
+	overflow: auto;
+	font-size: 0.9166em;
+	line-height: 1.5;
+	font-family: "Consolas", Courier New, Courier, monospace;
+	color: #333;
+	background: #f9f9f9;
+	border: 1px solid #e5e5e5;
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -pre-wrap;
+	white-space: -o-pre-wrap;
+	word-break: break-all;
+	word-wrap: break-word;
+}
+
+code,
+kbd,
+samp,
+var {
+	font-size: 0.9166em;
+	font-family: "Consolas", Courier New, Courier, monospace;
+}
+
+ins {
+	background: #ffffdd;
+	text-decoration: none;
+}
+
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup {
+	top: -0.5em;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+hr {
+	height:1px;
+	margin:40px 0;
+    border:0;
+    border-bottom:1px solid #e7e7e7;
+}
+	p + hr { margin: 25px 0 20px; }
+
+h5 + blockquote, h6 + blockquote{
+	margin-top: 1em;
+}
+blockquote{
+	background: #f8f8f8 url(../images/pull-quote-dark.png) no-repeat 10px 10px;
+	padding:20px 20px 20px 40px;
+	margin-bottom:1em;
+	font-size: 15px;
+    line-height: 1.4em;
+    width: 96.5%;
+    font-style: italic;
+	}
+	blockquote p{ margin-bottom: 0; }
+	
+	blockquote small, blockquote cite, blockquote small a, blockquote cite a, blockquote a small, blockquote a cite{font-size: 12px;}
+	
+table {
+    font-size: 12px;
+    margin: 10px 0;
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+}
+table caption {
+	padding: 0 0 5px 0;
+	width: auto;
+	font-style:italic;
+	text-align: right;
+	font-size: 12px;
+}
+table th {
+    border-bottom: 2px solid #999;
+    font-weight: normal;
+    font-size: 14px;
+    font-weight:bold;
+}
+table td {
+    border-top: 1px solid #f1f1f1;
+}
+table th, table td{
+	padding: 7px;
+	text-align: center;
+}
+table tfoot td {
+    font-size: 11px;
+}
+table tbody td {
+    background-color: #fff;
+}
+table tbody tr:hover td {
+    background-color: #f1f1f1;
+}  
+
+/* =Alignment
+-------------------------------------------------------------- */
+
+.alignleft {
+	display: inline;
+	float: left;
+	margin: 0 1.5em 1.5em 0;
+}
+.alignright {
+	display: inline;
+	float: right;
+	margin: 0 0 1.5em 1.5em;
+}
+.aligncenter {
+	display: block;
+	margin-bottom: 1.5em;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+/* =Images
+-------------------------------------------------------------- */
+
+#content img {
+	height: auto;
+	max-width: 100%;
+	vertical-align: top;
+}
+
+.wp-caption {
+	border: none;
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	background-color: #F3F3F3;
+}
+
+.wp-caption.alignleft {
+	margin: 5px 10px 5px 0;
+}
+
+.wp-caption.alignright {
+	margin: 5px 0 5px 10px;
+}
+
+.wp-caption img{
+	margin-left: 5px;
+	margin-top: 5px;
+}
+
+.wp-caption-dt {
+	margin: 0;
+	padding: 7px;
+	text-align: center;
+}
+
+.wp-caption .wp-caption-text,
+.wp-caption-dd {
+	color: #666;
+	font-size: 12px;
+	font-style: italic;
+	font-weight: 300;
+	line-height: 1.5;
+	padding: 5px;
+	margin-bottom: 0;
+}
+
+.mceTemp + ul,
+.mceTemp + ol  {
+	list-style-position: inside;
+}
+
+.attachment-blog, .wp-post-image,
+img.attachment-size_max, img.size-full, 
+img.alignleft, img.alignright, img.aligncenter, img.alignnone{
+	border: 1px solid #E5E5E5;
+	padding: 5px;
+	-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+				box-sizing: border-box;
+}
