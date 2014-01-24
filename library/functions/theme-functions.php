@@ -356,7 +356,7 @@ if( !function_exists('sp_get_first_image')) {
 if ( ! function_exists( 'sp_post_meta' ) ) {
 	function sp_post_meta() {
 		
-		printf( __('<span class="posted-on">Posted on </span><time class="entry-date" datetime="%1$s">%2$s</time>', SP_TEXT_DOMAIN),
+		printf( __('<time class="entry-date" datetime="%1$s">%2$s</time>', SP_TEXT_DOMAIN),
 			esc_attr( get_the_date( 'c' ) ),
 			esc_html( get_the_date() )
 		);
@@ -533,7 +533,7 @@ if (!function_exists('sp_post_slider')) {
 /* ---------------------------------------------------------------------- */
 /*	Get Most Racent posts from Category
 /* ---------------------------------------------------------------------- */
-function sp_last_posts_cat($numberOfPosts = 5 , $thumb = true , $cats = 1){
+function sp_last_posts_cat($numberOfPosts = 5 , $thumb = true , $cats = 1, $thumb_width = 60, $thumb_height = 60, $show_desc = true, $desc_length = 80){
 	global $post;
 	$orig_post = $post;
 	
@@ -548,20 +548,26 @@ function sp_last_posts_cat($numberOfPosts = 5 , $thumb = true , $cats = 1){
 	<ul>
 	<?php 
 	  foreach($lastPosts as $post): setup_postdata($post); 
-		$img_url = sp_post_image('blog-small');
-		$image = aq_resize($img_url, 60, 60, true);	
+		$img_url = sp_post_image('medium');
+		$image = aq_resize($img_url, $thumb_width, $thumb_height, true);	
 		if (empty($image)) $image = $img_url;		
 	?>
-		<li>
+		<li<?php echo ($thumb) ? ' class="thumb"' : '' ?>>
+			<a href="<?php the_permalink(); ?>" title="<?php printf( __( 'Permalink to %s', SP_TEXT_DOMAIN ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
 			<?php if ($image && $thumb) { ?>
 			<div class="post-thumbnail">
-				<a href="<?php the_permalink(); ?>" title="<?php printf( __( 'Permalink to %s', SP_TEXT_DOMAIN ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
-				<img src="<?php echo $image; ?>" class="wp-post-image" />
-	            </a>
-			</div><!-- post-thumbnail /-->
+				<img src="<?php echo $image; ?>" class="wp-post-image" width="<?php echo $thumb_width; ?>" height="<?php echo $thumb_height; ?>" />
+	        </div><!-- post-thumbnail /-->
+	        <?php } ?>
+			<?php the_title();?>
+			</a>
+			<div class="entry-meta"><?php echo sp_post_meta(); ?></div>
+			<?php if ( $show_desc ) { ?>
+			<div class="post-desc">
+				<?php the_excerpt(); ?>
+				<a class="learn-more" href="<?php the_permalink(); ?>"><?php echo _e('Learn more', SP_TEXT_DOMAIN );?></a>
+			</div>
 			<?php } ?>
-			<p><a href="<?php the_permalink(); ?>"><?php the_title();?></a></p>
-			<div class="entry-meta"><?php echo sp_meta_mini(); ?></div>
 		</li>
 <?php endforeach; ?>	
 	</ul>
@@ -728,4 +734,21 @@ function sp_get_social($newtab='yes', $icon_size='32', $tooltip='ttip' , $flat =
 	</div>
 
 <?php
+}
+
+/*-----------------------------------------------------------------------------------*/
+/* Show a total share counter (FB, Twitter, G+)
+/*-----------------------------------------------------------------------------------*/
+function social_shares( $socials ) {
+    $url = get_permalink( $post_id ); 
+    $json = file_get_contents("http://api.sharedcount.com/?url=" . rawurlencode($url));
+    $counts = json_decode($json, true);
+    if ($socials == "twitter") {
+    	$totalcounts= $counts["Twitter"]; 
+    } elseif ( $socials == "facebook" ) {	
+		$totalcounts = $counts["Facebook"]["total_count"];
+	} elseif ( $socials == "google_plus" ) {
+		$totalcounts = $counts["GooglePlusOne"];
+	}
+    echo $totalcounts;
 }

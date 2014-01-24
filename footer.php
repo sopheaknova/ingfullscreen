@@ -2,11 +2,8 @@
 	<?php if( !is_page_template("template-underconstruction.php") ) { ?>
 
 	<?php $disable_content = get_post_meta($post->ID, 'sp_diable_content_box', true); ?>
-	<?php if (!$disable_content) : ?>
-	<a href="#" title="Hide content box" class="toggle-content"></a>
-	<?php endif; ?>
 
-	<footer id="footer">
+	<footer id="footer" class="clearfix">
 		<?php if ( $smof_data['footer_text'] ) : ?>
 		<div class="copyright"><?php echo $smof_data['footer_text']; ?></div>
 		<?php endif; ?>

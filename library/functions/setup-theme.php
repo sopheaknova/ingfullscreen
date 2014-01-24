@@ -4,7 +4,7 @@
  * Sets up the content width value based on the theme's design and stylesheet.
  */
 if ( ! isset( $content_width ) )
-	$content_width = 890;
+	$content_width = 500;
 	
 /* ---------------------------------------------------------------------- */
 /*	Setup wordpress theme support
@@ -25,7 +25,7 @@ if(!function_exists('sp_theme_setup'))
 		add_theme_support( 'automatic-feed-links' );
 	
 		// Add post formats
-		add_theme_support( 'post-formats', array('gallery', 'video'));
+		add_theme_support( 'post-formats', array('video', 'gallery'));
 	
 		// Add navigation menus
 		register_nav_menus( array(
@@ -38,6 +38,7 @@ if(!function_exists('sp_theme_setup'))
 		
 		add_image_size('project-thumb', 280, 190, true); // project thumbnails
 		add_image_size('supersized-thumb', 200, 150, true); // project thumbnails
+		add_image_size('page-featured-image', 500, 255, true ); // page and post thumbnails
 		
 	}
 
@@ -60,31 +61,32 @@ add_action('wp_enqueue_scripts', 'sp_print_scripts_styles'); //print Script and 
 			wp_enqueue_style('base', SP_ASSETS_THEME . 'css/editor-style.css', false, '1');
 			wp_enqueue_style('supersized', SP_ASSETS_THEME . 'css/supersized.css', false, '1');
 			wp_enqueue_style('supersized-shutter', SP_ASSETS_THEME . 'css/supersized.shutter.css', false, '1');
-			wp_enqueue_style('mcustomscrollbar', SP_ASSETS_THEME . 'css/jquery.mCustomScrollbar.css', false, '1');
+			
 			if ( !WP_PRETTY_PHOTO_PLUGIN_ACTIVE ) {
 				wp_enqueue_style('pretty_photo', SP_ASSETS_THEME . 'js/prettyPhoto/css/prettyPhoto.css', false, '3.1.3');
 			}
+			wp_enqueue_style('flexslider', SP_ASSETS_THEME . 'css/flexslider.css', false, '1');
 			wp_enqueue_style('layout', SP_ASSETS_THEME . 'css/layout.css', false, '1');
-			wp_enqueue_style('genericons', SP_ASSETS_THEME . 'css/genericons.css', false, '1');
 			
 			//JS
 			wp_enqueue_script( 'jquery' );
 			wp_enqueue_script( 'hoverIntent',    SP_ASSETS_THEME . 'js/jquery.hoverintent.min.js', array('jquery'), null, true );
 
+			wp_enqueue_script( 'supersized', SP_ASSETS_THEME . 'js/supersized.3.2.7.min.js', array('jquery'), null, false );
+			wp_enqueue_script( 'supersized-shutter', SP_ASSETS_THEME . 'js/supersized.shutter.js', array('jquery'), null, false );
 			if( !WP_PRETTY_PHOTO_PLUGIN_ACTIVE ) {
 				wp_enqueue_script('pretty_photo_lib', SP_ASSETS_THEME . "js/prettyPhoto/js/jquery.prettyPhoto.js", array('jquery'), '3.1.3', true);
 				wp_enqueue_script('custom_pretty_photo', SP_ASSETS_THEME . "js/prettyPhoto/custom_params.js", array('pretty_photo_lib'), '3.1.3', true);
 			}
-			
-			wp_enqueue_script( 'mcustomscrollbar-concat', SP_ASSETS_THEME . 'js/jquery.mCustomScrollbar.concat.min.js', array('jquery'), null, true );
-			wp_enqueue_script( 'supersized', SP_ASSETS_THEME . 'js/supersized.3.2.7.min.js', array('jquery'), null, false );
-			wp_enqueue_script( 'supersized-shutter', SP_ASSETS_THEME . 'js/supersized.shutter.js', array('jquery'), null, false );
-			wp_enqueue_script( 'easing', SP_ASSETS_THEME . 'js/jquery.easing.min.js', array('jquery'), null, false );
-
+			if ( is_singular() ) {
+				wp_enqueue_script( "comment-reply");
+			}
 			wp_enqueue_script( 'fitvideos',    SP_ASSETS_THEME . 'js/jquery.fitvids.js', array('jquery'), null, true );
+			wp_enqueue_script( 'js-flexslider', SP_ASSETS_THEME . 'js/jquery.flexslider.js', array('jquery'), null, true );
+			wp_enqueue_script( 'easing', SP_ASSETS_THEME . 'js/jquery.easing.min.js', array('jquery'), null, true );
 			wp_enqueue_script( 'custom-scripts',    SP_ASSETS_THEME . 'js/custom.js', array('jquery'), null, true );
+
 			
-			if ( is_singular() ) wp_enqueue_script( "comment-reply");
 			
 		}
 	

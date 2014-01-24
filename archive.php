@@ -6,8 +6,8 @@
 get_header(); ?>
 
     <div id="content">
-	<div class="inner-content">
-		<div class="min">
+	<div class="container clearfix">
+		<div id="main" class="min">
         <header class="entry-header">
         	
         	<?php
@@ -55,9 +55,9 @@ get_header(); ?>
 			while ( have_posts() ) :
 			the_post(); ?>
 			<div class="archive-post-items">
-			<h5>
+			<h6>
 			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-			</h5>
+			</h6>
 			<div class="entry-meta"><?php sp_post_meta(); ?></div>
 			<?php 
 			if (is_single()) the_content(); 
@@ -66,12 +66,25 @@ get_header(); ?>
 			</div> <!-- archive-post-items -->
 		<?php 
 			endwhile; 
+			
+			// Pagination
+			if(function_exists('wp_pagenavi'))
+				wp_pagenavi();
+			else 
+				echo sp_pagination();
+
 		endif; ?>
 		</div><!-- .entry-content -->
 			
 		
-		</div> <!-- .mini -->		
-		</div> <!-- .inner-content -->		
+		</div> <!-- #main .mini -->		
+		<aside id="sidebar" class="widget-area" role="complementary">
+		<?php if ( is_active_sidebar( 'archive-sidebar' ) ) {
+			dynamic_sidebar( 'archive-sidebar' );
+		}
+		?>
+		</aside>
+		</div> <!-- .container -->		
         
     </div><!-- #main -->
 <?php get_sidebar(); ?>

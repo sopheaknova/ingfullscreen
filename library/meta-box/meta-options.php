@@ -43,11 +43,19 @@ $meta_boxes[] = array(
 			'id'       => $prefix . 'page_layout',
 			'type'     => 'radio_image',
 			'options'  => array(
-				'min-box' => '<img src="' . SP_ASSETS_ADMIN . 'images/meta-box/min-box.gif" alt="' . __('Min box - No sidebar', 'sptheme_admin') . '" title="' . __('Minimum content box"', 'sptheme_admin') . ' />',
-				'wide-box' => '<img src="' . SP_ASSETS_ADMIN . 'images/meta-box/wide-box.gif" alt="' . __('Wide box - No sidebar', 'sptheme_admin') . '" title="' . __('Fullwidth content box"', 'sptheme_admin') . ' />',
+				'1col' => '<img src="' . SP_ASSETS_ADMIN . 'images/meta-box/1col.png" alt="' . __('Fullwidth - No sidebar', 'sptheme_admin') . '" title="' . __('Fullwidth - No sidebar"', 'sptheme_admin') . ' />',
+				'2cl'  => '<img src="' . SP_ASSETS_ADMIN . 'images/meta-box/2cl.png" alt="' . __('Sidebar on the left', 'sptheme_admin') . '" title="' . __('Sidebar on the left', 'sptheme_admin') . '" />',
+				/*'2cr'  => '<img src="' . SP_ASSETS_ADMIN . 'images/meta-box/2cr.png" alt="' . __('Sidebar on the right', 'sptheme_admin') . '" title="' . __('Sidebar on the right', 'sptheme_admin') . '" />',*/
 			),
-			'std'  => 'min-box',
+			'std'  => '2cl',
 			'desc' => __('select the layout structure for this page.', 'sptheme_admin')
+		),
+		array(
+			'name' => __('Sidebar', 'sptheme_admin'),
+			'id'   => $prefix . 'selected_sidebar',
+			'type' => 'sidebar',
+			'std'  => '',
+			'desc' => 'Choose a sidebar to display'
 		)
 	)
 );
