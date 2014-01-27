@@ -22,7 +22,11 @@ get_header(); ?>
     	<?php get_template_part( 'includes/loop', 'page' ); ?>
 	    </div><!-- #main .$page_layout -->	
 	    <?php get_sidebar(); ?>
-	    <?php get_template_part( 'includes/social-icons' ); ?>
+	    <?php 
+	    if ($page_layout == 'min') { 
+	    	get_template_part( 'includes/social-icons' ); 
+	    }
+	    ?>
 	</div><!-- .container -->
 	
 </div>

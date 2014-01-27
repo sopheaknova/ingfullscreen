@@ -35,6 +35,15 @@
 	contentHeight();
 
 	/*--------------------------------------------------------------------------------------*/
+	/* 	Set Map auto height in Contact page 												
+	/*--------------------------------------------------------------------------------------*/
+	function mapHeightAuto(){
+		var mapHeight = $(window).height() - $('#header').height();
+		$('#single-map-canvas').css("height", mapHeight - 5);
+	}
+	mapHeightAuto();
+
+	/*--------------------------------------------------------------------------------------*/
 	/* 	Social share floating in article
 	/*--------------------------------------------------------------------------------------*/
 	if($(".social-icons-float").length != 0){
@@ -55,7 +64,8 @@
 	/* 	Flexslider post
 	/*--------------------------------------------------------------------------------------*/
 	$('.flexslider').flexslider({
-	    animation: "slide"
+	    animation: "slide",
+	    smoothHeight: "true"
 	  });
 																																  
 }(jQuery));
