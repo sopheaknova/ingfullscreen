@@ -96,16 +96,17 @@ add_action('wp_enqueue_scripts', 'sp_print_scripts_styles'); //print Script and 
 /* ---------------------------------------------------------------------- */
 /*	Add ie conditional html5 shim to header
 /* ---------------------------------------------------------------------- */
-function add_ie_html5_shim () {
+function add_ie_support_html5_css3 () {
 	global $is_IE;
 	if ($is_IE) {
    		echo '<!--[if lt IE 9]>';
     	echo '<script src="' . SP_ASSETS_THEME . 'js/html5.js"></script>';
     	echo '<script src="' . SP_ASSETS_THEME . 'js/selectivizr-min.js"></script>';
+    	echo '<link rel="stylesheet" type="text/css" href="' . SP_ASSETS_THEME . 'css/ie.css" />';
     	echo '<![endif]-->';
     }	
 }
-add_action('wp_head', 'add_ie_html5_shim');
+add_action('wp_head', 'add_ie_support_html5_css3');
 
 
 /* ---------------------------------------------------------------------- */

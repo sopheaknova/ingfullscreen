@@ -1,0 +1,15 @@
+/**
+ * Internet Explorer specific stylesheet
+ *
+ * Include IE specific hacks in this file.
+ */
+
+#main{
+	background: url(../images/white-bg-ie.png);
+}
+.widget{
+	background: url(../images/sidebar-bg-ie.png) repeat-y left top;
+}
+.flex-caption{
+	background: url(../images/black-bg-ie.png);
+}

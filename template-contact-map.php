@@ -81,7 +81,7 @@ Template Name: Contact Google Map
 		});
 	</script>
 
-	<div id="single-map-canvas" class="google-map-img-reset" style="width:100%; height: 450px;"></div>
+	<div id="single-map-canvas" class="google-map-img-reset" style="width:100%; height: 100%;"></div>
 
 	<!-- Begin Contact Information -->
 	<div id="map-info">

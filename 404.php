@@ -5,8 +5,8 @@
 
 get_header(); ?>
 <div id="content">
-	<div class="inner-content">
-		<div class="min">
+	<div class="container">
+		<div id="main" class="full-width">
 			<center>
 			<article id="post-0" class="post no-results not-found">
 			<header class="entry-header">
