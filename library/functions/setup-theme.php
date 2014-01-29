@@ -38,7 +38,7 @@ if(!function_exists('sp_theme_setup'))
 		
 		add_image_size('project-thumb', 280, 190, true); // project thumbnails
 		add_image_size('supersized-thumb', 200, 150, true); // project thumbnails
-		add_image_size('page-featured-image', 500, 255, true ); // page and post thumbnails
+		add_image_size('page-featured-image', 675, 345, true ); // page and post thumbnails
 		
 	}
 
@@ -67,10 +67,12 @@ add_action('wp_enqueue_scripts', 'sp_print_scripts_styles'); //print Script and 
 			}
 			wp_enqueue_style('flexslider', SP_ASSETS_THEME . 'css/flexslider.css', false, '1');
 			wp_enqueue_style('layout', SP_ASSETS_THEME . 'css/layout.css', false, '1');
+			wp_enqueue_style('responsive', SP_ASSETS_THEME . 'css/responsive.css', false, '1');
 			
 			//JS
 			wp_enqueue_script( 'jquery' );
 			wp_enqueue_script( 'hoverIntent',    SP_ASSETS_THEME . 'js/jquery.hoverintent.min.js', array('jquery'), null, true );
+			wp_enqueue_script( 'responsive-nav',    SP_ASSETS_THEME . 'js/responsive-nav.min.js', array('jquery'), null, true );
 
 			wp_enqueue_script( 'supersized', SP_ASSETS_THEME . 'js/supersized.3.2.7.min.js', array('jquery'), null, false );
 			wp_enqueue_script( 'supersized-shutter', SP_ASSETS_THEME . 'js/supersized.shutter.js', array('jquery'), null, false );
@@ -102,6 +104,7 @@ function add_ie_support_html5_css3 () {
    		echo '<!--[if lt IE 9]>';
     	echo '<script src="' . SP_ASSETS_THEME . 'js/html5.js"></script>';
     	echo '<script src="' . SP_ASSETS_THEME . 'js/selectivizr-min.js"></script>';
+    	echo '<script src="' . SP_ASSETS_THEME . 'js/respond.js"></script>';
     	echo '<link rel="stylesheet" type="text/css" href="' . SP_ASSETS_THEME . 'css/ie.css" />';
     	echo '<![endif]-->';
     }	

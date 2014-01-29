@@ -4,10 +4,6 @@
 	<?php $disable_content = get_post_meta($post->ID, 'sp_diable_content_box', true); ?>
 
 	<footer id="footer" class="clearfix">
-		<?php if ( $smof_data['footer_text'] ) : ?>
-		<div class="copyright"><?php echo $smof_data['footer_text']; ?></div>
-		<?php endif; ?>
-		
 		<div class="join-social">
 		<?php
 			if ($smof_data['is_social'])
@@ -23,6 +19,10 @@
 			<span class="call-us"><?php echo $smof_data['call_number']; ?></span>
 			<?php endif; ?>
 		</div>
+
+		<?php if ( $smof_data['footer_text'] ) : ?>
+		<div class="copyright"><?php echo $smof_data['footer_text']; ?></div>
+		<?php endif; ?>
 
 		
 	</footer>

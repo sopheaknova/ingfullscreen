@@ -548,15 +548,13 @@ function sp_last_posts_cat($numberOfPosts = 5 , $thumb = true , $cats = 1, $thum
 	<ul>
 	<?php 
 	  foreach($lastPosts as $post): setup_postdata($post); 
-		$img_url = sp_post_image('medium');
-		$image = aq_resize($img_url, $thumb_width, $thumb_height, true);	
-		if (empty($image)) $image = $img_url;		
-	?>
+		$image = sp_post_image('large');
+		?>
 		<li<?php echo ($thumb) ? ' class="thumb"' : '' ?>>
 			<a href="<?php the_permalink(); ?>" title="<?php printf( __( 'Permalink to %s', SP_TEXT_DOMAIN ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
 			<?php if ($image && $thumb) { ?>
 			<div class="post-thumbnail">
-				<img src="<?php echo $image; ?>" class="wp-post-image" width="<?php echo $thumb_width; ?>" height="<?php echo $thumb_height; ?>" />
+				<img src="<?php echo $image; ?>" class="wp-post-image" />
 	        </div><!-- post-thumbnail /-->
 	        <?php } ?>
 			<?php the_title();?>

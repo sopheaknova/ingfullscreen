@@ -4,6 +4,10 @@
  * Include IE specific hacks in this file.
  */
 
+.primary-nav li a {
+	border-bottom: 5px solid #E8D9C4;
+}
+
 #main{
 	background: url(../images/white-bg-ie.png);
 }

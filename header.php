@@ -7,6 +7,8 @@
 	<meta charset="utf-8">
 	<title><?php wp_title('|', true, 'right'); ?></title>
 
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+
 	<?php if ( isset($smof_data['theme_favicon']) && $smof_data['theme_favicon'] ) : ?>
 	<link rel="shortcut icon" href="<?php echo SP_BASE_URL; ?>favicon.ico" type="image/x-icon" />
 	<?php endif; ?>
@@ -44,11 +46,11 @@
                 <?php if( !is_singular() ) echo '</h1>'; else echo '</h2>'; ?>
             </div><!-- end .brand -->
             
-            <?php if( !(is_page_template("template-underconstruction.php")) ) { ?>
-            <nav id="main-nav" class="primary-nav" role="navigation">
+            <div id="main-nav">
+            <nav class="primary-nav" role="navigation">
 	        	<?php echo sp_main_navigation(); ?>
 			</nav><!-- #main-nav -->
-			<?php } ?>
+			</div>
             
 		</div><!-- end .container .clearfix -->
     </header><!-- end #header -->
