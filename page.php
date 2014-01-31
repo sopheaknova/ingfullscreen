@@ -15,7 +15,7 @@ get_header(); ?>
 		$page_layout = 'full-width';
 ?>
 
-<?php if (!$disable_content) : ?>
+<?php //if (!$disable_content) : ?>
 <div id="content">
 	<div class="container clearfix">
 		<div id="main" class="<?php echo $page_layout; ?>">
@@ -31,5 +31,5 @@ get_header(); ?>
 	
 </div>
 <!-- #content -->
-<?php endif; ?>
+<?php //endif; ?>
 <?php get_footer(); ?>

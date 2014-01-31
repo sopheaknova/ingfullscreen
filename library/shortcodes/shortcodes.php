@@ -713,34 +713,27 @@ function gallery_sc( $atts, $content = null ){
 		
 	if ($custom_query->have_posts()) :
 
-		$col ='one-third';
-		$output = '';
-		$count = 1;
-		
-		$output .= '<div class="gallery-projects">';
+		$output = '<div class="flexslider">';
+		$output .= '<ul class="slides">';
 
 		while ($custom_query->have_posts()) :
 			$custom_query->the_post();
 
-			$post_gallery = rwmb_meta( 'sp_gallery_album', $args = array('type' => 'plupload_image', 'size' => 'project-thumb') ); 
+			$post_gallery = rwmb_meta( 'sp_gallery_album', $args = array('type' => 'plupload_image', 'size' => 'page-featured-image') ); 
 			
 			foreach ( $post_gallery as $image ){
 
-			($count % 3) ? $col = 'one-third' : $col = 'one-third last';
-	
-			$output .= '<div class="project-item ' . $col . '">';
-			$output .= '<a href="'.$image["full_url"].'" rel="wp-prettyPhoto['.get_the_id().']">';
-			$output .= '<div class="project-info"><h2>' . $image["title"] . '</h2></div>';
-			$output .= '<div class="project-background"></div>';
+			$output .= '<li>';
+			$output .= '<a href="'.$image["full_url"].'" rel="prettyPhoto">';
 			$output .= '<img src="' . $image["url"] . '" />';
 			$output .= '</a>';
-			$output .= '</div>';
-			
-			$count++;
+			$output .= '</li>';
+		
 			}
 
 		endwhile;
 
+		$output .= '</ul>';
 		$output .= '</div>';
 		
 	endif;

@@ -182,6 +182,8 @@ table {
     width: 100%;
     text-align: left;
     border-collapse: collapse;
+    border: 1px solid #E5E1E1;
+    /*box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);*/
 }
 table caption {
 	padding: 0 0 5px 0;
@@ -191,10 +193,12 @@ table caption {
 	font-size: 12px;
 }
 table th {
-    border-bottom: 2px solid #999;
+    /*border-bottom: 2px solid #999;*/
     font-weight: normal;
     font-size: 14px;
     font-weight:bold;
+    background-color:#303398;
+    color: #fff;
 }
 table td {
     border-top: 1px solid #f1f1f1;

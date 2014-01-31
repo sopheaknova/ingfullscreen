@@ -26,17 +26,17 @@ $meta_boxes = array();
 $meta_boxes[] = array(
 	'id'       => 'layout-settings',
 	'title'    => __('Layout Settings', 'sptheme_admin'),
-	'pages'    => array('page', 'post'),
+	'pages'    => array('page', 'post', 'sp_project'),
 	'context'  => 'normal',
 	'priority' => 'high',
 	'fields'   => array(
-		array(
+		/*array(
 			'name' => __('Disable content box', 'sptheme_admin'),
 			'id'   => $prefix . 'diable_content_box',
 			'type' => 'checkbox',
 			'std'  => 0,
 			'desc' => __('Check to disable content box on this page/post', 'sptheme_admin'),
-		),
+		),*/
 		
 		array(
 			'name'     => __('Page Layout', 'sptheme_admin'),
@@ -62,13 +62,13 @@ $meta_boxes[] = array(
 
 $meta_boxes[] = array(
 	'id'       => 'page-background-image',
-	'title'    => __('Background images', 'sptheme'),
+	'title'    => __('Background images', 'sptheme_admin'),
 	'pages'    => array('page', 'post', 'sp_project'),
 	'context'  => 'normal',
 	'priority' => 'high',
 	'fields'   => array(
 		array(
-			'name' => __('Upload background page', 'sptheme'),
+			'name' => __('Upload background page', 'sptheme_admin'),
 			'id'   => $prefix . 'background_page',
 			'type' => 'image_advanced',
 			'max_file_uploads' => 5,
@@ -104,18 +104,46 @@ $meta_boxes[] = array(
 /* ---------------------------------------------------------------------- */
 $meta_boxes[] = array(
 	'id'       => 'album-setting',
-	'title'    => __('Album setting', 'sptheme'),
+	'title'    => __('Album setting', 'sptheme_admin'),
 	'pages'    => array('sp_gallery'),
 	'context'  => 'normal',
 	'priority' => 'high',
 	'fields'   => array(
 		array(
-			'name' => __('Upload photos', 'sptheme'),
+			'name' => __('Upload photos', 'sptheme_admin'),
 			'id'   => $prefix . 'gallery_album',
 			'type' => 'image_advanced',
 			'max_file_uploads' => 50,
 			'std'  => '',
 			'desc' => 'Max size 1024px by 768px'
+		)
+	)
+);
+
+/* ---------------------------------------------------------------------- */
+/*	PROJECT POST TYPE
+/* ---------------------------------------------------------------------- */
+$meta_boxes[] = array(
+	'id'       => 'project-settings',
+	'title'    => __('Project settings', 'sptheme_admin'),
+	'pages'    => array('sp_project'),
+	'context'  => 'normal',
+	'priority' => 'high',
+	'fields'   => array(
+		array(
+			'name' => __('Multiple images', 'sptheme_admin'),
+			'id'   => $prefix . 'project_img_type',
+			'type' => 'checkbox',
+			'std'  => 0,
+			'desc' => __('Check to upload multiple photos for this project', 'sptheme_admin'),
+		),
+		array(
+			'name' => __('Upload background page', 'sptheme_admin'),
+			'id'   => $prefix . 'project_gallery',
+			'type' => 'image_advanced',
+			'max_file_uploads' => 10,
+			'std'  => '',
+			'desc' => 'Min size 1280px by 800px'
 		)
 	)
 );

@@ -16,8 +16,8 @@ function register_buttons( $buttons ) {
 	array_push( $buttons, 'btn' );
 	array_push( $buttons, 'email_encoder' );
 	array_push( $buttons, 'team' );
-	array_push( $buttons, 'project_grid' );
-	array_push( $buttons, 'gallery' );
+	// array_push( $buttons, 'project_grid' );
+	// array_push( $buttons, 'gallery' );
 	//array_push( $buttons, 'insert_posts' );
 
     return $buttons;
@@ -36,8 +36,10 @@ function add_plugins($plugin_array) {
 	$plugin_array['btn']			= $js_path . 'sc-btn.js';
 	$plugin_array['email_encoder']	= $js_path . 'sc-email-encoder.js';
 	$plugin_array['team']			= $js_path . 'sc-team.js';
-	$plugin_array['project_grid']	= $js_path . 'sc-project-grid.js';
-	$plugin_array['gallery']		= $js_path . 'sc-gallery.js';
+	// if (get_post_type() != 'sp_project') {
+	// 	$plugin_array['project_grid']	= $js_path . 'sc-project-grid.js';
+	// }
+	// $plugin_array['gallery']		= $js_path . 'sc-gallery.js';
 	//$plugin_array['insert_posts']	= $js_path . 'sc-insert-posts.js';
 	
     return $plugin_array;

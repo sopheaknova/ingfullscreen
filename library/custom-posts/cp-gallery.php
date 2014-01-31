@@ -102,7 +102,7 @@
 			
 			$columns = array(
 				'cb'                   	=> '<input type="checkbox" />',
-				'thumbnail'            	=> __( 'Thumbnail', 'sptheme_admin' ),
+				'gallery_thumbnail'     => __( 'Thumbnail', 'sptheme_admin' ),
 				'title'                	=> __( 'Album Name', 'sptheme_admin' ),
 				'date' 					=> __( 'Date', 'sptheme_admin' ),
 				'author' 				=> __( 'Created By', 'sptheme_admin' )
@@ -122,22 +122,27 @@
 			global $post;
 			
 			switch ( $column ) {
-				case "thumbnail":
+				case "gallery_thumbnail":
 
-					$albums = rwmb_meta( 'sp_gallery_album', $args = array('type' => 'plupload_image', 'size' => 'thumbnail') ); 
-					$albums_count = 0;
-					$cover_image = '';
-					$size = explode( 'x', SP_ADMIN_LIST_THUMB );
+					if (get_the_post_thumbnail( $post->ID, $size, array( 'title' => get_the_title( $post->ID ) ) )) {
+						$size = explode( 'x', SP_ADMIN_LIST_THUMB );
+						echo '<a href="' . get_edit_post_link( $post->ID ) . '">' . get_the_post_thumbnail( $post->ID, $size, array( 'title' => get_the_title( $post->ID ) ) ) . '</a>';	
+					} else {
+						$albums = rwmb_meta( 'sp_gallery_album', $args = array('type' => 'plupload_image', 'size' => 'thumbnail') ); 
+						$albums_count = 0;
+						$cover_image = '';
+						$size = explode( 'x', SP_ADMIN_LIST_THUMB );
 
-					foreach ( $albums as $image ){
-						if ($albums_count < 1) {
-							$cover_image .= '<img src="' . $image["url"] . '" width="' . $size[0] . '" height="' . $size[1] . '" />';
-						}	
+						foreach ( $albums as $image ){
+							if ($albums_count < 1) {
+								$cover_image .= '<img src="' . $image["url"] . '" width="' . $size[0] . '" height="' . $size[1] . '" />';
+							}	
 
-						$albums_count++;
-					}
-					
-					echo '<a href="' . get_edit_post_link( $post->ID ) . '">' . $cover_image . '</a>';
+							$albums_count++;
+						}
+						
+						echo '<a href="' . get_edit_post_link( $post->ID ) . '">' . $cover_image . '</a>';
+					}	
 
 				break;
 				

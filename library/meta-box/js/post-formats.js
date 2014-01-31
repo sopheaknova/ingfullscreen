@@ -130,6 +130,32 @@ jQuery( document ).ready( function($) {
 			$pageLayout.parent().parent().parent().show();
 		}
 	}
+
+	/***********************************************
+	* Enable upload multiple project gallery
+	***********************************************/
+	var $projectGallery = $('#sp_project_img_type'),
+	$uploadProjectGallery = $('#project-settings').find('.rwmb-meta-box').children().eq(3).hide();
+
+	$projectGallery.each(function() {
+		var $this = $(this);
+
+		if( $this.is(':checked') )
+			toggleUploadGallery( $this.attr('checked') );
+	})
+
+	$projectGallery.change(function(){
+		toggleUploadGallery( $(this).attr('checked') );
+	});
+
+	function toggleUploadGallery( checked ){
+		if (checked == 'checked'){
+			$uploadProjectGallery.show();
+			
+		} else {
+			$uploadProjectGallery.hide();
+		}
+	}
 	
 
 });

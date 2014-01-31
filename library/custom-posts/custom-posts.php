@@ -2,7 +2,7 @@
 
 //All custom posts
 require_once( SP_BASE_DIR . 'library/custom-posts/cp-project.php' );
-require_once( SP_BASE_DIR . 'library/custom-posts/cp-gallery.php' );
+//require_once( SP_BASE_DIR . 'library/custom-posts/cp-gallery.php' );
 
 //Taxonomies
 require_once( SP_BASE_DIR . 'library/custom-posts/taxonomies.php' );
