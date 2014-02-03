@@ -131,7 +131,7 @@ $meta_boxes[] = array(
 	'priority' => 'high',
 	'fields'   => array(
 		array(
-			'name' => __('Multiple images', 'sptheme_admin'),
+			'name' => __('Multiple images slideshow', 'sptheme_admin'),
 			'id'   => $prefix . 'project_img_type',
 			'type' => 'checkbox',
 			'std'  => 0,

@@ -173,8 +173,28 @@
 		width: 100%;
 	}
 
+	.one-fourth, .one-third, .two-third, .two-fourth, .three-fourth{
+		float: none;
+		width: 100%;
+	}
+
+	.wp-caption{width: auto; width:100%!important;}
+	.wp-caption.alignright, .wp-caption.alignleft, .wp-caption.aligncenter{margin: 0; margin-bottom: 1.2em;}
+	.wp-caption img{width: 96%;}
+
 	.social-icons-float, .flex-caption{
 		display: none;
 	}
+
+	#map-info{
+		width: 280px;
+		left: 50%;
+		top: 30px;
+		margin-left: -140px;
+		z-index: 8;
+	}
+
+	#footer .quick-support {display: none;}
+
 
 }

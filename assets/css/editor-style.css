@@ -252,7 +252,7 @@ table tbody tr:hover td {
 	margin: 0;
 	padding: 0;
 	text-align: left;
-	background-color: #F3F3F3;
+	background-color: #fcbe62;
 }
 
 .wp-caption.alignleft {
@@ -283,7 +283,7 @@ table tbody tr:hover td {
 
 .wp-caption .wp-caption-text,
 .wp-caption-dd {
-	color: #666;
+	color: #fff;
 	font-size: 12px;
 	font-style: italic;
 	font-weight: 300;
