@@ -51,10 +51,10 @@ Template Name: Contact Google Map
 				center: new google.maps.LatLng(<?php echo $map_loc[0] . ',' . $longitude_center; ?>),
 				zoomControlOptions: {
 			        style: google.maps.ZoomControlStyle.LARGE,
-			        position: google.maps.ControlPosition.LEFT_CENTER
+			        position: google.maps.ControlPosition.RIGHT_CENTER
 			    },
 			    panControlOptions: {
-			        position: google.maps.ControlPosition.LEFT_CENTER
+			        position: google.maps.ControlPosition.RIGHT_CENTER
 			    },
 				streetViewControl:false,
 				zoom:14,
