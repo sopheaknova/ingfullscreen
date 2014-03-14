@@ -10,7 +10,7 @@ Template Name: Contact Google Map
 	//Past meta value into var
 	$map_locations = get_post_meta($post->ID, 'sp_contact_map', true); 
 	$map_loc = explode(',', $map_locations);
-	$longitude_center = $map_loc[1] - 0.04;// Variable to align the marker on the right side of the map, instead of the center
+	$latitude_center = $map_loc[0] + 0.008;// Variable to align the marker on the right side of the map, instead of the center
 ?>
 <!-- Begin Google Map -->
 <div id="map-container">
@@ -48,7 +48,7 @@ Template Name: Contact Google Map
 			];;
 			
 			var mapOptions = {	
-				center: new google.maps.LatLng(<?php echo $map_loc[0] . ',' . $longitude_center; ?>),
+				center: new google.maps.LatLng(<?php echo $latitude_center . ',' . $map_loc[1]; ?>),
 				zoomControlOptions: {
 			        style: google.maps.ZoomControlStyle.LARGE,
 			        position: google.maps.ControlPosition.RIGHT_CENTER

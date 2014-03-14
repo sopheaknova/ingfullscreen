@@ -55,7 +55,7 @@ add_action('wp_enqueue_scripts', 'sp_print_scripts_styles'); //print Script and 
 		
 		if(!is_admin()){
 			//CSS
-			wp_enqueue_style('gfont-opensans', SP_BASE_URL . 'http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,700,700italic', false, '1');
+			wp_enqueue_style('gfont-opensans', 'http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,700,700italic', false, '1');
 			wp_enqueue_style('sp-theme-styles', SP_BASE_URL . 'style.css', false, '1');
 			wp_enqueue_style('reset', SP_ASSETS_THEME . 'css/reset.css', false, '1');
 			wp_enqueue_style('base', SP_ASSETS_THEME . 'css/editor-style.css', false, '1');

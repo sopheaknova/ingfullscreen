@@ -54,8 +54,16 @@
 	/* 	Set Map auto height in Contact page 												
 	/*--------------------------------------------------------------------------------------*/
 	function mapHeightAuto(){
-		var mapHeight = $(window).height() - $('#header').height();
-		$('#single-map-canvas').css("height", mapHeight - 5);
+		var mapHeight = $(window).height() - $('#header').height() - 5,
+		mainWidth = $('#map-container').width();
+		mapInfo = $('#map-info').height();
+		if( mainWidth <= 320 ){
+			$('#single-map-canvas').css("height", mapHeight + mapInfo + 50);
+		} else if( mainWidth <= 480 ){
+			$('#single-map-canvas').css("height", mapHeight + 100);
+		}else{
+			$('#single-map-canvas').css("height", mapHeight);
+		}	
 	}
 	mapHeightAuto();
 
