@@ -71,7 +71,7 @@ $meta_boxes[] = array(
 			'name' => __('Upload background page', 'sptheme_admin'),
 			'id'   => $prefix . 'background_page',
 			'type' => 'image_advanced',
-			'max_file_uploads' => 5,
+			'max_file_uploads' => 20,
 			'std'  => '',
 			'desc' => 'Min size 1280px by 800px'
 		)
