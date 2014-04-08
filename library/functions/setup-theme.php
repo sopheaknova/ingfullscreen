@@ -38,7 +38,7 @@ if(!function_exists('sp_theme_setup'))
 		
 		add_image_size('project-thumb', 280, 190, true); // project thumbnails
 		add_image_size('supersized-thumb', 200, 150, true); // project thumbnails
-		add_image_size('page-featured-image', 675, 345, true ); // page and post thumbnails
+		add_image_size('page-featured-image', 600, 450, true ); // page and post thumbnails
 		
 	}
 
