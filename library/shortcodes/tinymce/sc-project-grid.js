@@ -7,7 +7,7 @@
         init : function( ed, url ) {
              ed.addButton( 'project_grid', {
                 title : 'Insert a projects grid',
-                image : url + '/ed-icons/project.png',
+                image : url + '/ed-icons/logo_grid.png',
                 onclick : function() {
 						var width = jQuery( window ).width(), H = jQuery( window ).height(), W = ( 720 < width ) ? 720 : width;
 						W = W - 80;

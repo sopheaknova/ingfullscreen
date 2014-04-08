@@ -1,5 +1,5 @@
 /**
- * Project Grid Short code button
+ * Gallery Short code button
  */
 
 (function($) {
