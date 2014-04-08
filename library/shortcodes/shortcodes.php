@@ -647,6 +647,7 @@ function projects_grid( $atts, $content = null ){
 		'posts_per_page' 	=> (int) $limit,
 		'post_type' 		=> 'sp_project',
 		'orderby' 			=> $orderby,
+		'order'				=> 'ASC',
 		'tax_query' 		=> array(
 							'relation' => 'AND',
 							array(	

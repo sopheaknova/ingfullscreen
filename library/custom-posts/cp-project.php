@@ -28,6 +28,8 @@
 	//FILTERS
 		//CP list table columns
 		add_filter( 'manage_edit-sp_project_columns', 'sp_project_cp_columns' );
+		// make Order column sortable
+		add_filter('manage_edit-sp_project_sortable_columns','order_column_register_sortable');
 
 
 
@@ -63,7 +65,7 @@
 
 			$role     = 'post'; // page
 			$slug     = 'ing-project';
-			$supports = array('title', 'editor', 'thumbnail'); // 'title', 'editor', 'thumbnail'
+			$supports = array('title', 'editor', 'thumbnail', 'page-attributes'); // 'title', 'editor', 'thumbnail'
 
 			$args = array(
 				'labels' 				=> $labels,
@@ -107,7 +109,7 @@
 				'project-category' 		=> __( 'Project Type', 'sptheme_admin' ),
 				'phase' 				=> __( 'Phase', 'sptheme_admin' ),
 				'date' 					=> __( 'Date', 'sptheme_admin' ),
-				'author' 				=> __( 'Created By', 'sptheme_admin' )
+				'menu_order' 			=> __( 'Order', 'sptheme_admin' )
 			);
 
 			return $columns;
@@ -172,12 +174,25 @@
 					echo '<a href="' . get_edit_post_link( $post->ID ) . '">' . get_the_post_thumbnail( $post->ID, $size, array( 'title' => get_the_title( $post->ID ) ) ) . '</a>';
 
 				break;
+
+				case 'menu_order':
+				      $order = $post->menu_order;
+				      echo $order;
+				break;      
 				
 				default:
 				break;
 			}
 		}
 	} // /sp_project_cp_custom_column
+
+	/**
+	* make Order column sortable
+	*/
+	function order_column_register_sortable($columns){
+	  $columns['menu_order'] = 'menu_order';
+	  return $columns;
+	}
 
 	
 	
