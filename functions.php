@@ -29,6 +29,11 @@ if ( ! isset( $cp_menu_position ) )
 			'sp_gallery'		=> 33,
 		);
 
+/* Increase file size upload */
+@ini_set( 'upload_max_size' , '32M' );
+@ini_set( 'post_max_size', '32M');
+@ini_set( 'max_execution_time', '300' );
+
 /*
  *  load some backend functions
  */
