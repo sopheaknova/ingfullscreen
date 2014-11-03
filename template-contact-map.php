@@ -100,7 +100,8 @@ Template Name: Contact Google Map
 			$longitude = $map_loc[1];
 		?>
 		<div class="directions-container">
-			<a href="https://maps.google.com/?saddr=&daddr=<?php echo esc_html($latitude); ?>,<?php echo esc_html($longitude); ?>" class="button awesome small square grey" target="_blank"><span class="icon-map-marker"></span><?php _e('Get Directions', SP_TEXT_DOMAIN); ?></a>
+			<a href="https://maps.google.com/?saddr=&daddr=<?php echo esc_html($latitude); ?>,<?php echo esc_html($longitude); ?>" class="button awesome small square grey" target="_blank"><span class="icon-map-marker"></span><?php echo get_post_meta( $post->ID, 'sp_direction_label', true ); ?></a>
+			<span class="address"><?php echo get_post_meta( $post->ID, 'sp_address', true ); ?></span>
 		</div>
 		<!-- End Contact Information -->
 		<?php endwhile;

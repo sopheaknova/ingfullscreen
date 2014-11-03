@@ -181,13 +181,18 @@ $meta_boxes [] = array(
 		// 	'std'  => 'info@yourcompany.com',
 		// 	'desc' => __('ex: info@yourcompany.com', 'sptheme_admin'),
 		// ),
-		
-		// array(
-		// 	'id'            => $prefix . 'address',
-		// 	'name'          => __( 'Address', 'sptheme_admin' ),
-		// 	'type'          => 'textarea',
-		// 	'std'           => __( 'Phnom Penh, Cambodia', 'sptheme_admin' ),
-		// ),
+		array(
+			'id'            => $prefix . 'direction_label',
+			'name'          => __( 'Direction label', 'sptheme_admin' ),
+			'type'          => 'text',
+			'std'           => __( 'Get Direction', 'sptheme_admin' ),
+		),
+		array(
+			'id'            => $prefix . 'address',
+			'name'          => __( 'Address', 'sptheme_admin' ),
+			'type'          => 'textarea',
+			'std'           => __( 'Phnom Penh, Cambodia', 'sptheme_admin' ),
+		),
 		array(
 			'id'            => $prefix . 'contact_map',
 			'name'          => __( 'Location', 'sptheme_admin' ),
